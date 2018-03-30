@@ -1,3 +1,12 @@
+// ===THEME===
+// Allowed values: Dark, Light, Default
+
+$theme: Dark;
+
+// ===BRANDS===
+//Allowed values: leaf, zebra, fox
+$brand: fox;
+
 // ===COLORS===
 $text-color: #330033;
 $theme-color:  #f5f5f0;
@@ -6,6 +15,36 @@ $ternary-color: #b2b266;
 $link-color: $secondary-color;
 $shadow-color: #5c5c3d;
 $menu-item-color: white;
+$body-background-color: white;
+
+@if $theme == Dark {
+  $text-color: white;
+  $body-background-color: #4d4d33;
+  $theme-color:  #f5f5f0;
+  $secondary-color: #666633;
+  $ternary-color: #b2b266;
+  $link-color: $secondary-color;
+  $shadow-color: #5c5c3d;
+  $menu-item-color: white;
+} @else if $theme == Light {
+  $text-color: #330033;
+  $body-background-color:#fff2e6;
+  $theme-color:  #f5f5f0;
+  $secondary-color: #666633;
+  $ternary-color: #b2b266;
+  $link-color: $secondary-color;
+  $shadow-color: #5c5c3d;
+  $menu-item-color: white;
+} @else {
+  $text-color: black;
+  $body-background-color: white;
+  $theme-color:  #f5f5f0;
+  $secondary-color: #666633;
+  $ternary-color: #b2b266;
+  $link-color: $secondary-color;
+  $shadow-color: #5c5c3d;
+  $menu-item-color: white;
+}
 
 // ===FONTS===
 $text-font: "Alegreya Sans", Verdana, Aral, sans-serif;

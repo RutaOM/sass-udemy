@@ -1,6 +1,20 @@
+
 @import "partials/functions";
-@import "partials/variables";
 @import "partials/mixins";
+@import "partials/variables";
+
+@for $i from 1 through 6 {
+  .col-#{$i}  {
+   width: $i * 2em;
+  }
+}
+
+$speakers: bob-banker, patty-plume, sandra-smith;
+@each $speaker in $speakers {
+  .#{$speaker}-profile {
+    background-image: url('/img/#{$speaker}.png');
+  }
+}
 
 @include google-font("Alegreya+Sans");
 @include google-font("Titillium+Web");
@@ -14,11 +28,18 @@
 }
 
 body{
-  background-color: $theme-color;
   color: $text-color;
   font-size: em(18px);
-  @include large-screens{
-    font-size: 125%;
+  background-color: $body-background-color;
+
+  @include zebra{
+    background-color: white;
+    color: black;
+  }
+
+  @include fox{
+    background-color: darkorange;
+    color: black;
   }
 }
 
@@ -36,12 +57,23 @@ p{
 
 a{
   color: $link-color;
+
+  @include fox{
+    color: brown;
+  }
   &:hover{
     color: darken($link-color, 35%);
   }
 }
 
+%highlight{
+  font-style: italic;
+}
 
+.sub-title{
+  @extend %highlight;
+  @extend .foo !optional;
+}
 
 .header{
   @include box;
@@ -81,6 +113,18 @@ a{
   width: 100%;
   text-align: center;
   margin-right: 1px;
+
+  @include leaf{
+    background-color: greenyellow;
+  }
+
+  @include zebra{
+    background-color: black;
+  }
+
+  @include fox{
+    background-color: orange;
+  }
 }
 .main{
   width: $content-width;
@@ -97,4 +141,12 @@ a{
   @include warning;
   @include box-shadow(4px 4px $shadow-color, 4px 4px 4px $shadow-color);
   padding: 8px 12px;
+}
+
+.cta-button{
+  @extend .button;
+}
+
+.super-cta-button{
+  @extend .cta-button;
 }

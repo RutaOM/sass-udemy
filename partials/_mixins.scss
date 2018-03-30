@@ -1,5 +1,23 @@
 @import "variables";
 
+@mixin leaf{
+  @if $brand == leaf{
+    @content
+  }
+}
+
+@mixin zebra{
+  @if $brand == zebra{
+    @content
+  }
+}
+
+@mixin fox{
+  @if $brand == fox{
+    @content
+  }
+}
+
 @mixin tiny-screens(){
   @media only screen and(max-width: 320px){
     @content;
